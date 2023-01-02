@@ -1,0 +1,103 @@
+<html>
+<head>
+  <title>Thời Khoá Biểu</title>
+  <style>
+    body {
+      background-color: lightgray;
+      text-align: center;
+    }
+    table {
+      margin: 0 auto;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Thời Khoá Biểu</h1>
+  <table border="1">
+    <tr>
+      <th>Ngày</th>
+      <th>Thứ Hai</th>
+      <th>Thứ Ba</th>
+      <th>Thứ Tư</th>
+      <th>Thứ Năm</th>
+      <th>Thứ Sáu</th>
+      <th>Thứ Bảy</th>
+    </tr>
+    <tr>
+      <td>7:30am - 8:15am</td>
+      <td>CC</td>
+      <td>Sử</td>
+      <td>Tin</td>
+      <td>Tin</td>
+      <td>Văn</td>
+      <td>TD</td>
+    </tr>
+    <tr>
+      <td>8:20am - 9:05am</td>
+      <td>Văn</td>
+      <td>TD</td>
+      <td>Anh</td>
+      <td>Lí</td>
+      <td>Văn</td>
+      <td>Lí</td>
+    </tr>
+    <tr>
+      <td>9:15am - 10:00am</td>
+      <td>Văn</td>
+      <td>Toán</td>
+      <td>Anh(Hà)</td>
+      <td>KT&PL</td>
+      <td>Toán(CĐ)</td>
+      <td>Lí</td>
+    </tr>
+    <tr>
+      <td>10:05am - 10:50pm</td>
+      <td>Địa</td>
+      <td>Anh(Hà)</td>
+      <td>Toán</td>
+      <td>Anh(Hương)</td>
+      <td>Sử</td>
+      <td>Địa</td>
+    </tr>
+    <tr>
+      <td>10:55pm - 11:40pm</td>
+      <td>Văn(GDDP)</td>
+      <td>Anh(Hà)</td>
+      <td>Toán</td>
+      <td>Anh(Hương)</td>
+      <td>SH</td>
+      <td>KT&PL</td>
+    </tr>
+    <tr>
+      <td>2:00pm - 4:15pm</td>
+      <td>ĐT</td>
+      <td>Toán</td>
+      <td>Văn</td>
+      <td>Anh</td>
+      <td>Anh</td>
+      <td>ĐT</td>
+    </tr>
+  </table>
+<table border="1">
+  <tr>
+    <th>Current Date</th>
+    <th>Current Time</th>
+  </tr>
+  <tr>
+    <td id="date"></td>
+    <td id="time"></td>
+  </tr>
+</table>
+
+<script>
+  function updateDateTime() {
+    const currentDate = new Date();
+    document.getElementById('date').innerHTML = currentDate.toDateString();
+    document.getElementById('time').innerHTML = currentDate.toLocaleTimeString();
+  }
+  setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>
