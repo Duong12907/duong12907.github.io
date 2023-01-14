@@ -2,6 +2,54 @@
 <head>
   <title>Thời Khoá Biểu</title>
   <style>
+    #game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  background-color: blue;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Position the bars randomly on the screen */
+#bar1 {
+  top: 10%;
+  left: 25%;
+}
+
+#bar2 {
+  top: 50%;
+  left: 40%;
+}
+
+#bar3 {
+  top: 30%;
+  left: 70%;
+}
+
+#bar4 {
+  top: 60%;
+  left: 60%;
+}
+
+#bar5 {
+  top: 20%;
+  left: 90%;
+}
+
+/* Style the bars when they are grouped together */
+.grouped {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  border-radius: 50%;
+}
+
     body {
       background-color: lightgray;
       text-align: center;
@@ -13,6 +61,14 @@
   </style>
 </head>
 <body>
+  <div id="game-container">
+  <div class="bar" id="bar1"></div>
+  <div class="bar" id="bar2"></div>
+  <div class="bar" id="bar3"></div>
+  <div class="bar" id="bar4"></div>
+  <div class="bar" id="bar5"></div>
+</div>
+
   <h1>Thời Khoá Biểu</h1>
   <table border="1">
     <tr>
@@ -27,47 +83,47 @@
     <tr>
       <td>7:30am - 8:15am</td>
       <td>CC</td>
+      <td>TD</td>
       <td>Sử</td>
-      <td>Tin</td>
-      <td>Tin</td>
-      <td>Văn</td>
+      <td>KT%PL</td>
+      <td>Địa</td>
       <td>TD</td>
     </tr>
     <tr>
       <td>8:20am - 9:05am</td>
-      <td>Văn</td>
-      <td>TD</td>
-      <td>Anh</td>
       <td>Lí</td>
+      <td>Tin</td>
+      <td>Tin</td>
       <td>Văn</td>
-      <td>Lí</td>
+      <td>Văn</td>
+      <td>KT&PL</td>
     </tr>
     <tr>
       <td>9:15am - 10:00am</td>
-      <td>Văn</td>
-      <td>Toán</td>
-      <td>Anh(Hà)</td>
-      <td>KT&PL</td>
-      <td>Toán(CĐ)</td>
       <td>Lí</td>
+      <td>Lí</td>
+      <td>Toán</td>
+      <td>Văn</td>
+      <td>Văn</td>
+      <td>Anh(Hương)</td>
     </tr>
     <tr>
       <td>10:05am - 10:50pm</td>
-      <td>Địa</td>
+      <td>KT&PL</td>
+      <td>Anh(Hà)</td>
+      <td>Toán</td>
       <td>Anh(Hà)</td>
       <td>Toán</td>
       <td>Anh(Hương)</td>
-      <td>Sử</td>
-      <td>Địa</td>
     </tr>
     <tr>
       <td>10:55pm - 11:40pm</td>
-      <td>Văn(GDDP)</td>
+      <td>GDQP</td>
       <td>Anh(Hà)</td>
-      <td>Toán</td>
-      <td>Anh(Hương)</td>
+      <td>Địa</td>
+      <td>Anh(Hà)</td>
       <td>SH</td>
-      <td>KT&PL</td>
+      <td>Toán(CĐ)</td>
     </tr>
     <tr>
       <td>2:00pm - 4:15pm</td>
@@ -97,6 +153,42 @@
     document.getElementById('time').innerHTML = currentDate.toLocaleTimeString();
   }
   setInterval(updateDateTime, 1000);
+  var bars = document.querySelectorAll('.bar');
+
+// Add event listener for mouseover on each bar
+bars.forEach(function(bar) {
+  bar.addEventListener('mouseover', groupBars);
+});
+
+function groupBars() {
+  // Add the 'grouped' class to all bars
+  bars.forEach(function(bar) {
+    bar.classList.add('grouped');
+  });
+
+  // Position the grouped bars to form a polygon
+  var bar1 = document.getElementById('bar1');
+  var bar2 = document.getElementById('bar2');
+  var bar3 = document.getElementById('bar3');
+  var bar4 = document.getElementById('bar4');
+  var bar5 = document.getElementById('bar5');
+
+  bar1.style.top = '50%';
+  bar1.style.left = '30%';
+
+  bar2.style.top = '30%';
+  bar2.style.left = '50%';
+
+  bar3.style.top = '70%';
+  bar3.style.left = '50%';
+
+  bar4.style.top = '50%';
+  bar4.style.left = '70%';
+
+  bar5.style.top = '50%';
+  bar5.style.left = '50%';
+}
+
 </script>
 <img src="image.jpg" alt="TriNamCo">
 <style>
