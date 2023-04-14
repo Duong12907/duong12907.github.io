@@ -99,10 +99,38 @@
     document.getElementById('time').innerHTML = currentDate.toLocaleTimeString();
   }
   setInterval(updateDateTime, 1000);
+  
+  
+  
+	  function highlightCurrentColumn() {
+	  const days = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+	  const currentDate = new Date();
+	  const currentDay = days[currentDate.getDay() - 1];
 
+	  const table = document.getElementsByTagName('table')[0];
+	  const headerRow = table.rows[0];
+	  const columnCount = headerRow.cells.length;
+
+	  // loop through all the columns in the header row
+	  for (let i = 0; i < columnCount; i++) {
+		const columnHeader = headerRow.cells[i].innerHTML;
+		if (columnHeader === currentDay) {
+		  // add CSS class to highlight the column
+		  for (let j = 0; j < table.rows.length; j++) {
+			table.rows[j].cells[i].classList.add('highlight');
+		  }
+		  break; // exit the loop if we found the current column
+		}
+	  }
+	}
+	highlightCurrentColumn()
 </script>
 <img src="image.jpg" alt="TriNamCo">
 <style>
+.highlight {
+  background-color: yellow;
+}
+
   /* Style the game container */
   #game-container {
     display: inline-block;
